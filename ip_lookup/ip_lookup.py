@@ -16,8 +16,8 @@ for rows in reader:
     if rows:
         # print rows[0]
         # print urllib.urlopen('http://api.hostip.info/get_html.php?ip=%s&position=true' % rows[0]).read()
-        new_row = [rows[0],re.findall("Country:(.*)\\nCity", urllib.urlopen(
-        'http://api.hostip.info/get_html.php?ip=%s&position=true' % rows[0]).read(), re.M | re.I)]
+        new_row = [rows[0],re.findall('country":(.*)."isp', urllib.urlopen(
+        'http://www.telize.com/geoip/%s?callback=getgeoip' % rows[0]).read(), re.M | re.I)]
         if x % 5 == 0:
             print 'Looked up ' + str(x) + ' IP addresses so far'
         new_rows_list.append(new_row)
