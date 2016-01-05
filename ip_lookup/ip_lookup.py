@@ -19,7 +19,7 @@ for rows in reader:
                re.findall('country_name":(.*),"region_code',
                           urllib.urlopen('http://freegeoip.net/json/%s?' % rows[0]).read(), re.M | re.I)]
 
-if x % 5 == 0:
+    if x % 5 == 0:
         print 'Looked up ' + str(x) + ' IP addresses so far'
     new_rows_list.append(new_row)
 
